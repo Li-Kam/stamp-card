@@ -3,7 +3,7 @@
 
 const STAR_SVG =
   '<svg class="star" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">' +
-  '<path d="M12 2l2.9 6.26L21.6 9l-4.8 4.6 1.2 6.7L12 17.1 6 20.3l1.2-6.7L2.4 9l6.7-.74z"/></svg>';
+  '<path d="M12 21s-6.7-4.35-9.3-8.04C1.1 10.7 1.4 7.6 3.7 6.1 5.7 4.8 8.2 5.4 9.6 7.2L12 10l2.4-2.8c1.4-1.8 3.9-2.4 5.9-1.1 2.3 1.5 2.6 4.6.99 6.86C18.7 16.65 12 21 12 21z"/></svg>';
 
 const SEEN_KEY = "stamps-of-gold-seen";
 
@@ -121,7 +121,7 @@ function renderCard(stamps, perCard, seen) {
   if (stamps.length >= perCard) {
     const banner = document.createElement("div");
     banner.className = "card-complete-banner";
-    banner.innerHTML = '<span class="banner-mark">&#9826;</span> This card is full — trade it in for a real nugget of gold.';
+    banner.innerHTML = '<span class="banner-mark">&#9825;</span> This card is full — trade it in for a real nugget of gold.';
     card.after(banner);
   }
 }
@@ -186,7 +186,7 @@ function renderHistory(completedCards, perCard) {
       .map((s) => "<li>" + escapeHtml(s.reason || "") + "</li>")
       .join("");
     el.innerHTML =
-      '<h3><span class="hist-mark">&#9826;</span> Card ' + (idx + 1) + "</h3><ol>" + reasons + "</ol>";
+      '<h3><span class="hist-mark">&#9825;</span> Card ' + (idx + 1) + "</h3><ol>" + reasons + "</ol>";
     list.appendChild(el);
   });
 }
