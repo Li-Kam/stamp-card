@@ -121,7 +121,7 @@ function renderCard(stamps, perCard, seen) {
   if (stamps.length >= perCard) {
     const banner = document.createElement("div");
     banner.className = "card-complete-banner";
-    banner.textContent = "🎉 This card is full! Trade it in for a real nugget of gold.";
+    banner.innerHTML = '<span class="banner-mark">&#9826;</span> This card is full — trade it in for a real nugget of gold.';
     card.after(banner);
   }
 }
@@ -186,7 +186,7 @@ function renderHistory(completedCards, perCard) {
       .map((s) => "<li>" + escapeHtml(s.reason || "") + "</li>")
       .join("");
     el.innerHTML =
-      "<h3>🪙 Card " + (idx + 1) + "</h3><ol>" + reasons + "</ol>";
+      '<h3><span class="hist-mark">&#9826;</span> Card ' + (idx + 1) + "</h3><ol>" + reasons + "</ol>";
     list.appendChild(el);
   });
 }
