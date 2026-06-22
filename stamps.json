@@ -2,7 +2,7 @@
   "config": {
     "herName": "Moon",
     "title": "Stamps of Gold",
-    "subtitle": "Every stamp is a little reason you're wonderful.",
+    "subtitle": "Every stamp is a step closer to a jar full of gold.",
     "message": "Fill a card with 10 stamps and trade it in for a real nugget of gold. — Kam",
     "stampsPerCard": 10
   },
@@ -11,8 +11,8 @@
       "id": 1,
       "redeemed": false,
       "stamps": [
-        { "date": "2026-06-22", "reason": "For staying up." },
-        { "date": "2026-06-22", "reason": "For your time spent on app"},
+        { "date": "2026-06-22", "reason": "For staying up. No more staying up!" },
+        { "date": "2026-06-22", "reason": "For all the work you've done for the app. Ideas, write ups, testing, feedback, getting beta tester and much much more."},
         { "date": "2026-06-22", "reason": "Just because"}
       ]
     }
