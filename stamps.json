@@ -1,9 +1,9 @@
 {
   "config": {
-    "herName": "HER_NAME",
+    "herName": "Moon",
     "title": "Stamps of Gold",
     "subtitle": "Every stamp is a little reason you're wonderful.",
-    "message": "Fill a card with 10 stamps and trade it in for a real nugget of gold. — Love, ME",
+    "message": "Fill a card with 10 stamps and trade it in for a real nugget of gold. — Kam",
     "stampsPerCard": 10
   },
   "cards": [
