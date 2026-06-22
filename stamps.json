@@ -1,0 +1,18 @@
+{
+  "config": {
+    "herName": "HER_NAME",
+    "title": "Stamps of Gold",
+    "subtitle": "Every stamp is a little reason you're wonderful.",
+    "message": "Fill a card with 10 stamps and trade it in for a real nugget of gold. — Love, ME",
+    "stampsPerCard": 10
+  },
+  "cards": [
+    {
+      "id": 1,
+      "redeemed": false,
+      "stamps": [
+        { "date": "2026-06-21", "reason": "For being exactly you." }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#fbf6ec" />
+  <title>Stamps of Gold</title>
+  <meta name="description" content="A stamp card collected with love." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Nunito+Sans:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="bg-glow" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <p class="eyebrow" id="eyebrow">For HER_NAME</p>
+    <h1 class="title" id="title">Stamps of Gold</h1>
+    <p class="subtitle" id="subtitle"></p>
+  </header>
+
+  <main class="layout">
+    <!-- JAR -->
+    <section class="jar-panel" aria-labelledby="jar-heading">
+      <h2 class="section-heading" id="jar-heading">The Gold Jar</h2>
+      <div class="jar-stage">
+        <svg class="jar" viewBox="0 0 220 300" role="img" aria-label="A glass jar collecting gold nuggets">
+          <defs>
+            <linearGradient id="glass" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="rgba(255,255,255,0.55)" />
+              <stop offset="35%" stop-color="rgba(255,255,255,0.10)" />
+              <stop offset="100%" stop-color="rgba(255,255,255,0.20)" />
+            </linearGradient>
+            <radialGradient id="nuggetGrad" cx="35%" cy="30%" r="75%">
+              <stop offset="0%" stop-color="#ffe9a8" />
+              <stop offset="45%" stop-color="#f5c14b" />
+              <stop offset="100%" stop-color="#b8860b" />
+            </radialGradient>
+            <clipPath id="jarInside">
+              <path d="M48 92 Q48 84 56 84 L164 84 Q172 84 172 92 L172 256 Q172 276 152 276 L68 276 Q48 276 48 256 Z" />
+            </clipPath>
+          </defs>
+
+          <!-- lid -->
+          <rect x="58" y="58" width="104" height="26" rx="9" class="jar-lid" />
+          <rect x="64" y="76" width="92" height="10" rx="4" class="jar-lid-band" />
+
+          <!-- jar body -->
+          <path class="jar-body" d="M48 92 Q48 84 56 84 L164 84 Q172 84 172 92 L172 256 Q172 276 152 276 L68 276 Q48 276 48 256 Z" />
+
+          <!-- nuggets get injected here, clipped to inside of jar -->
+          <g id="nuggets" clip-path="url(#jarInside)"></g>
+
+          <!-- glass highlight on top of everything -->
+          <path class="jar-shine" d="M48 92 Q48 84 56 84 L164 84 Q172 84 172 92 L172 256 Q172 276 152 276 L68 276 Q48 276 48 256 Z" />
+          <path class="jar-streak" d="M62 96 L62 250" />
+        </svg>
+      </div>
+      <p class="jar-count"><span id="nugget-count">0</span> gold <span id="nugget-word">nuggets</span> earned</p>
+      <p class="jar-sub" id="jar-sub"></p>
+    </section>
+
+    <!-- CURRENT CARD -->
+    <section class="card-panel" aria-labelledby="card-heading">
+      <div class="card-head">
+        <h2 class="section-heading" id="card-heading">Current Card</h2>
+        <span class="card-progress" id="card-progress">0 / 10</span>
+      </div>
+
+      <div class="stamp-card" id="stamp-card"><!-- slots injected --></div>
+
+      <p class="card-hint">Tap a stamp to see why you earned it.</p>
+    </section>
+  </main>
+
+  <!-- History of completed cards -->
+  <section class="history" id="history" hidden>
+    <h2 class="section-heading">Cards You've Filled</h2>
+    <div class="history-list" id="history-list"></div>
+  </section>
+
+  <footer class="site-footer">
+    <p id="footer-msg"></p>
+  </footer>
+
+  <!-- Reason popover -->
+  <div class="reason-modal" id="reason-modal" hidden>
+    <div class="reason-card" role="dialog" aria-modal="true" aria-labelledby="reason-title">
+      <button class="reason-close" id="reason-close" aria-label="Close">&times;</button>
+      <p class="reason-stamp-no" id="reason-no"></p>
+      <p class="reason-text" id="reason-text"></p>
+      <p class="reason-date" id="reason-date"></p>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
