@@ -240,14 +240,6 @@ main, header, section, footer { position: relative; z-index: 1; }
   50% { box-shadow: 0 0 0 6px rgba(245, 203, 92, 0.55); }
 }
 
-.card-hint {
-  text-align: center;
-  font-size: 0.85rem;
-  color: var(--ink-soft);
-  margin: 0.5rem 0 0;
-  font-style: italic;
-}
-
 .card-complete-banner {
   margin-top: 1rem;
   text-align: center;
