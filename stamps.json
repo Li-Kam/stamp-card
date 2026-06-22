@@ -11,7 +11,9 @@
       "id": 1,
       "redeemed": false,
       "stamps": [
-        { "date": "2026-06-21", "reason": "For being exactly you." }
+        { "date": "2026-06-22", "reason": "For staying up." },
+        { "date": "2026-06-22", "reason": "For your time spent on app"},
+        { "date": "2026-06-22", "reason": "Just because"}
       ]
     }
   ]
