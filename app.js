@@ -95,20 +95,13 @@ function renderCard(stamps, perCard, seen) {
     if (stamp) {
       slot.classList.add("filled");
       slot.innerHTML = STAR_SVG;
-      slot.setAttribute("role", "button");
-      slot.setAttribute("tabindex", "0");
-      slot.setAttribute("aria-label", "Stamp " + (i + 1) + " — tap to read why");
+      slot.setAttribute("aria-label", "Stamp " + (i + 1) + " earned");
       // animate stamps newer than what she last saw
       if (i >= (seen.stamps || 0)) {
         slot.classList.add("is-new");
         slot.style.animationDelay = (i - (seen.stamps || 0)) * 0.18 + "s";
       }
       if (justCompleted) slot.classList.add("complete-pulse");
-      const open = () => openReason(i + 1, stamp);
-      slot.addEventListener("click", open);
-      slot.addEventListener("keydown", (e) => {
-        if (e.key === "Enter" || e.key === " ") { e.preventDefault(); open(); }
-      });
     } else {
       slot.textContent = i + 1;
     }
@@ -181,30 +174,10 @@ function renderHistory(completedCards, perCard) {
   completedCards.forEach((card, idx) => {
     const el = document.createElement("div");
     el.className = "history-card";
-    const reasons = (card.stamps || [])
-      .slice(0, perCard)
-      .map((s) => "<li>" + escapeHtml(s.reason || "") + "</li>")
-      .join("");
-    el.innerHTML =
-      "<h3>🪙 Card " + (idx + 1) + "</h3><ol>" + reasons + "</ol>";
+    el.innerHTML = "<h3>🪙 Card " + (idx + 1) + "</h3>";
     list.appendChild(el);
   });
 }
-
-/* ---------- Reason modal ---------- */
-function openReason(no, stamp) {
-  document.getElementById("reason-no").textContent = "Stamp #" + no;
-  document.getElementById("reason-text").textContent = "“" + (stamp.reason || "") + "”";
-  document.getElementById("reason-date").textContent = stamp.date ? formatDate(stamp.date) : "";
-  document.getElementById("reason-modal").hidden = false;
-}
-function closeReason() { document.getElementById("reason-modal").hidden = true; }
-
-document.getElementById("reason-close").addEventListener("click", closeReason);
-document.getElementById("reason-modal").addEventListener("click", (e) => {
-  if (e.target.id === "reason-modal") closeReason();
-});
-document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeReason(); });
 
 /* ---------- helpers ---------- */
 function animateCount(el, from, to) {
@@ -217,15 +190,6 @@ function animateCount(el, from, to) {
     if (cur < to) setTimeout(tick, Math.min(400, 900 / steps));
   };
   setTimeout(tick, 400);
-}
-function formatDate(iso) {
-  const d = new Date(iso + "T00:00:00");
-  if (isNaN(d)) return iso;
-  return d.toLocaleDateString(undefined, { year: "numeric", month: "long", day: "numeric" });
-}
-function escapeHtml(s) {
-  return s.replace(/[&<>"']/g, (c) =>
-    ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
 }
 // tiny seeded RNG so the pile looks the same every load
 function mulberry32(a) {
